@@ -1,7 +1,7 @@
 
 function App() {
   return (
-    <div>
+    <div className="text-red-700">
       <h1>LinkQRator</h1>
     </div>
   );
