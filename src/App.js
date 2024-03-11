@@ -24,6 +24,9 @@ function App() {
   const bodyParameters = {
     "colorDark": inputValue.color,
     "qrCategory": "url",
+    "eye_outer": "eyeOuter2",
+    "eye_inner": "eyeInner7",
+    "qrData": "pattern6",
     "text": inputValue.url,
   };
   const getQRcode = async () => {

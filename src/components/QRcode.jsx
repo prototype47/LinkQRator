@@ -24,7 +24,7 @@ const QRcode = () => {
     }
 
     return (
-        <div className='bg-gray-100 rounded-r-md flex flex-col items-center justify-center'>
+        <div className='bg-gray-200 rounded-r-md flex flex-col items-center justify-center'>
             {response ? 
                 <div>
                     <img className='w-48 rounded-md' src={response} alt="QR code" />
