@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { InputContext } from '../App';
 
 const QRcode = () => {
+
+    const { response, loading, error } = useContext(InputContext);
+    
+    if(loading) {
+        return (
+            <div className="animate-pulse flex flex-col items-center justify-center px-10 gap-3">
+                <div className="h-32 w-full bg-gray-300"></div>
+                <div className="h-8 w-full bg-gray-300"></div>
+            </div>
+        );
+    }
+    
+    if(error) {
+        return <div className="text-gray-500 flex items-center">Sorry, Something went wrong 😥</div>
+    }
+
     return (
         <div className='bg-gray-100 rounded-r-md flex flex-col items-center justify-center'>
-            <div>
-                <img className='w-48 rounded-md' src="https://qrtiger.com/temp/1710083454051.png" alt="QR code" />
-                <button className='bg-blue-400 text-white mt-2 px-4 py-1 w-full rounded-md'>Download</button>
-            </div>
+            {response ? 
+                <div>
+                    <img className='w-48 rounded-md' src={response} alt="QR code" />
+                    <button className='bg-blue-400 text-white mt-2 px-4 py-1 w-full rounded-md'>Download</button>
+                </div> : (
+                <div className='text-gray-500'>Your QR will show here</div>
+            )}
         </div>
     )
 }
