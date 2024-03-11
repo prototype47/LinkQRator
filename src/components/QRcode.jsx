@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { InputContext } from '../App';
+import { saveAs } from 'file-saver';
 
 const QRcode = () => {
 
@@ -18,12 +19,16 @@ const QRcode = () => {
         return <div className="text-gray-500 flex items-center">Sorry, Something went wrong 😥</div>
     }
 
+    const downloadQR = () => {
+        saveAs(response, 'QRcode.png');
+    }
+
     return (
         <div className='bg-gray-100 rounded-r-md flex flex-col items-center justify-center'>
             {response ? 
                 <div>
                     <img className='w-48 rounded-md' src={response} alt="QR code" />
-                    <button className='bg-blue-400 text-white mt-2 px-4 py-1 w-full rounded-md'>Download</button>
+                    <button onClick={downloadQR} className='bg-blue-400 text-white mt-2 px-4 py-1 w-full rounded-md'>Download</button>
                 </div> : (
                 <div className='text-gray-500'>Your QR will show here</div>
             )}
